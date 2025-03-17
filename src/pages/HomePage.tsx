@@ -51,7 +51,11 @@ function HomePage() {
 
       navigate('/estimate');
     } catch (error) {
-      setError(error.message as string);
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError(String(error));
+      }
       return;
     }
   }
