@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { io, Socket } from "socket.io-client";
 
-const SOCKET_URL = "https://pokerday-backend-production.up.railway.app:5000";
+const SOCKET_URL = "https://pokerday-backend-production.up.railway.app";
 
 interface SocketContextType {
   socket: Socket | null;
@@ -13,7 +13,10 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({childre
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
-    const newSocket = io(SOCKET_URL, {autoConnect: false});
+    const newSocket = io(SOCKET_URL, {
+      transports: ["websocket"],
+      withCredentials: true,
+    });
 
     newSocket.connect();
 
@@ -26,7 +29,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({childre
     });
 
     setSocket(newSocket);
-
+``
     return () => {
       newSocket.disconnect();
     };
