@@ -1,4 +1,4 @@
-const api_base_url = "http://localhost:5000/api";
+const api_base_url = "https://pokerday-backend-production.up.railway.app/api";
 
 export async function createRoom() {
   const response = await fetch(`${api_base_url}/rooms/create`, {})
