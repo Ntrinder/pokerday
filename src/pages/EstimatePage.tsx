@@ -150,7 +150,7 @@ function EstimatePage() {
                     return (
                       <Joiner
                         key={`joiner-${joiner}`}
-                        voted={votes.some(vote => vote.name === joiner)}
+                        voted={votes && votes.some(vote => vote.name === joiner)}
                         name={joiner}/>
                     )
                   }
