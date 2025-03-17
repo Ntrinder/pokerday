@@ -20,6 +20,7 @@ function EstimatePage() {
 
   useEffect(() => {
     if (!socket) return;
+
     socket.on("roomMembersUpdate", (members) => {
       setJoiners(members);
     });

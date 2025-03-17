@@ -13,9 +13,7 @@ function HomePage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    return() => {
-      setName("");
-    }
+    setName("");
   }, []);
 
   const handleCreateRoom = async () => {
