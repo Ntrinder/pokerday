@@ -1,4 +1,4 @@
-const api_base_url = "https://pokerday-backend-production.up.railway.app/api";
+const api_base_url = import.meta.env.VITE_POKERDAY_BACKEND_API
 
 export async function createRoom() {
   const response = await fetch(`${api_base_url}/rooms/create`, {})
